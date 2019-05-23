@@ -1,0 +1,92 @@
+<head>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <style>
+        .result_head{
+            text-align:center;
+            font-family: 'Do Hyeon', sans-serif;
+            display:inline-block;
+
+
+        }
+
+        .result_head_div{
+
+            text-align:center;
+            margin-top:10%;
+        }
+        .number{
+            color:blue;
+            font-size:5em;
+        }
+        html{
+            margin-left:8%;
+            margin-right:8%;
+            border-left-style:solid;
+            border-left-width: 0.25em;
+            border-left-color:blue;
+            border-right-style:solid;
+            border-right-width: 0.25em;
+            border-right-color:blue;
+        }
+        .context{
+
+            margin-left:10%;
+            margin-top:10%;
+
+        }
+        .fulltext{
+            color:blue;
+            font-size:1em;
+        }
+        .word{
+            color:blue;
+            font-size:1.5em;
+        }
+        .wordcount{
+            font-size:3em;
+            font-family: 'Do Hyeon', sans-serif;
+        }
+        .typingtext{
+            font-size:3em;
+            font-family: 'Do Hyeon', sans-serif;
+        }
+        .restart{
+            padding : 1px;
+            border-style:solid;
+            border-width:1px;
+            color:white;
+            background-color:blue;
+            border-radius: 1px 1px 1px 1px/1px 1px 1px 1px;
+        }
+
+
+    </style>
+</head>
+
+
+<div class="result_head_div">
+<h1 class="result_head">당신이 입력한 텍스트는 </h1>
+<h1 class="result_head number">{{total}}</h1>
+<h1 class="result_head">개 로 구성되어 있습니다.</h1>
+</div>
+
+<div class="context">
+<a class="restart" href="{% url 'home'%}">다시하기</a>
+<br>
+<h2 class="typingtext">입력한 텍스트 :</h2>
+    <div class="fulltext">
+{{full}}
+    </div>
+
+<h2 class="wordcount">단어 카운트 : </h2>
+{% for word, howmany in dictionary %}
+    <div class="word">
+{{word}} : {{howmany}}
+    </div>
+<br>
+{%endfor%}
+</div>
