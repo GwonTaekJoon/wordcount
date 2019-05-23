@@ -19,7 +19,7 @@ import wordcount_app.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',wordcount_app.views.home, name="home"),
+    path('',wordcount_app.views.index, name="index"),
     path('about/', wordcount_app.views.about, name='about'),
     path('result/',wordcount_app.views.result, name='result')
 ]
